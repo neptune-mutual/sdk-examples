@@ -32,14 +32,15 @@ const info = {
   },
   reportingPeriod: 7 * DAYS,
   resolutionSources: ['https://twitter.com/compoundfinance', 'https://medium.com/compound-finance', 'https://twitter.com/neptunemutual'],
-  assuranceToken: {
-    at: '0x1dc2c4363d7e5965f3b9cb404c0e47e497ae5df7',
-    name: 'Compound',
-    symbol: 'COMP',
+  reassuranceToken: {
+    at: '0xe8BAb5ca5eA0Fc93b2a4E1aD22376726ED209ed5',
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
     initialAmount: ether(50_000)
   },
   stakeWithFees: ether(50_000),
-  initialLiquidity: ether(50_000)
+  initialLiquidity: ether(50_000),
+  minReportingStake: ether(5000)
 }
 
 export { info }

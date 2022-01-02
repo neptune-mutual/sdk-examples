@@ -8,7 +8,7 @@ const get = async () => {
     const { key, coverName } = info
     const provider = getProvider()
 
-    const response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
+    const response = await liquidity.getBalance(ChainId.Ropsten, key, provider)
     console.info('[%s Liquidity] %s', coverName, weiAsDollars(response.result))
   } catch (error) {
     console.error(error)

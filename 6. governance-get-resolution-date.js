@@ -8,7 +8,7 @@ const getResolutionDate = async () => {
     const { key, coverName } = info
     const provider = getProvider()
 
-    const response = await governance.getResolutionDate(ChainId.Mumbai, key, provider)
+    const response = await governance.getResolutionDate(ChainId.Ropsten, key, provider)
     console.info('[%s] Resolution Date: %s', coverName, toDate(response.result).toUTCString())
   } catch (error) {
     console.error(error)

@@ -18,10 +18,10 @@ const readCoverInfo = async () => {
     const key = '0x70726f746f3a636f6e7472616374733a636f7665723a6366633a303100000001'
     const provider = myProvider()
 
-    const coverInfo = await cover.getCoverInfo(ChainId.Mumbai, key, provider)
+    const coverInfo = await cover.getCoverInfo(ChainId.Ropsten, key, provider)
     console.log(coverInfo)
   } catch (error) {
-    console.error(error)
+    console.error(error.message)
   }
 }
 

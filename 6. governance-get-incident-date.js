@@ -8,7 +8,7 @@ const getIncidentDate = async () => {
     const { key, coverName } = info
     const provider = getProvider()
 
-    const response = await governance.getIncidentDate(ChainId.Mumbai, key, provider)
+    const response = await governance.getIncidentDate(ChainId.Ropsten, key, provider)
     console.info('[%s] Incident Date: %s', coverName, toDate(response.result).toUTCString())
   } catch (error) {
     console.error(error)

@@ -10,7 +10,7 @@ const formatToken = (x, symbol) => Number(x).toLocaleString(undefined, { minimum
 const weiAsPercent = (x) => formatPercent(weiToEther(x))
 const weiAsDollars = (x) => formatCurrency(weiToEther(x))
 const weiAsToken = (x, symbol) => formatToken(weiToEther(x), symbol)
-const weiAsNep = (x) => formatToken(weiToEther(x), 'NEP')
+const weiAsNpm = (x) => formatToken(weiToEther(x), 'NPM')
 const toDate = (x) => new Date(parseInt(x.toString()) * 1000)
 
 export {
@@ -20,6 +20,6 @@ export {
   weiAsPercent,
   weiAsDollars,
   weiAsToken,
-  weiAsNep,
+  weiAsNpm,
   toDate
 }

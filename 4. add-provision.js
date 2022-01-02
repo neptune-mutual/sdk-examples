@@ -6,7 +6,7 @@
 import { ChainId, provision } from '@neptunemutual/sdk'
 import { info } from './info.js'
 import { getProvider } from './provider.js'
-import { ether, weiAsNep } from './bn.js'
+import { ether, weiAsNpm } from './bn.js'
 
 const increase = async () => {
   try {
@@ -14,18 +14,18 @@ const increase = async () => {
     const provider = getProvider(true)
     const amount = ether(25_000)
 
-    let response = await provision.get(ChainId.Mumbai, key, provider)
-    console.info('[%s Provision] Before: %s', coverName, weiAsNep(response.result))
+    let response = await provision.get(ChainId.Ropsten, key, provider)
+    console.info('[%s Provision] Before: %s', coverName, weiAsNpm(response.result))
 
-    await provision.approve(ChainId.Mumbai, { amount }, provider)
-    response = await provision.increase(ChainId.Mumbai, key, amount, provider)
-
-    console.info(response)
-
+    response = await provision.approve(ChainId.Ropsten, { amount }, provider)
     await response.result.wait()
 
-    response = await provision.get(ChainId.Mumbai, key, provider)
-    console.info('[%s Provision] After: %s', coverName, weiAsNep(response.result))
+    // Only liquidity manager can increase provision
+    // response = await provision.increase(ChainId.Ropsten, key, amount, provider)
+    // await response.result.wait()
+
+    response = await provision.get(ChainId.Ropsten, key, provider)
+    console.info('[%s Provision] After: %s', coverName, weiAsNpm(response.result))
   } catch (error) {
     console.error(error)
   }

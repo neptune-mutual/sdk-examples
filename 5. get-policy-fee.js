@@ -15,7 +15,7 @@ const get = async () => {
     console.info('Getting %s cover for %d months', weiAsDollars(args.amount), args.duration)
     console.info('--------------------------------------')
 
-    const response = await policy.getCoverFee(ChainId.Mumbai, key, args, provider)
+    const response = await policy.getCoverFee(ChainId.Ropsten, key, args, provider)
     const {
       fee,
       utilizationRatio,

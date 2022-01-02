@@ -10,16 +10,18 @@ const add = async () => {
     const provider = getProvider()
     const amount = ether(500_000)
 
-    let response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
+    let response = await liquidity.getBalance(ChainId.Ropsten, key, provider)
     console.info('[%s Liquidity] Before: %s', coverName, weiAsDollars(response.result))
 
-    await liquidity.approve(ChainId.Mumbai, key, { amount }, provider)
-    response = await liquidity.add(ChainId.Mumbai, key, amount, provider)
+    response = await liquidity.approve(ChainId.Ropsten, key, { amount }, provider)
+    await response.result.wait()
+
+    response = await liquidity.add(ChainId.Ropsten, key, amount, provider)
     console.info(response)
 
     await response.result.wait()
 
-    response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
+    response = await liquidity.getBalance(ChainId.Ropsten, key, provider)
     console.info('[%s Liquidity] After: %s', coverName, weiAsDollars(response.result))
   } catch (error) {
     console.error(error)

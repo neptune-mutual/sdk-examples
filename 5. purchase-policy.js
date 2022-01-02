@@ -14,9 +14,10 @@ const purcahse = async () => {
     }
 
     // First approve the Policy contract to spend your DAI or BUSD
-    await policy.approve(ChainId.Mumbai, {}, provider)
+    let response = await policy.approve(ChainId.Ropsten, {}, provider)
+    await response.result.wait()
 
-    const response = await policy.purchaseCover(ChainId.Mumbai, key, args, provider)
+    response = await policy.purchaseCover(ChainId.Ropsten, key, args, provider)
     console.info(response)
   } catch (error) {
     console.error(error)

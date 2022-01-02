@@ -6,11 +6,19 @@ const create = async () => {
   try {
     const provider = getProvider()
 
-    await cover.approveAssurance(ChainId.Mumbai, info.assuranceToken.at, { amount: info.assuranceToken.initialAmount }, provider)
-    await cover.approveInitialLiquidity(ChainId.Mumbai, { amount: info.initialLiquidity }, provider)
-    await cover.approveStakeAndFees(ChainId.Mumbai, { amount: info.stakeWithFees }, provider)
+    await cover.approveReassurance(ChainId.Ropsten, info.reassuranceToken.at, { amount: info.reassuranceToken.initialAmount }, provider)
+    await cover.approveInitialLiquidity(ChainId.Ropsten, { amount: info.initialLiquidity }, provider)
+    await cover.approveStakeAndFees(ChainId.Ropsten, { amount: info.stakeWithFees }, provider)
 
-    const response = await cover.createCover(ChainId.Mumbai, info, provider)
+    /**
+    If you encounter ERC-20 transfer error during cover on the next line, you may need to wait for the previous transactions to mine.
+
+    Example:
+    let tx = await cover.approveReassurance(ChainId.Ropsten, info.reassuranceToken.at, { amount: info.reassuranceToken.initialAmount }, provider)
+    tx.result.wait()
+   */
+
+    const response = await cover.createCover(ChainId.Ropsten, info, provider)
     console.info(response)
   } catch (error) {
     console.error(error)

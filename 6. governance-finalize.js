@@ -13,10 +13,10 @@ const finalize = async () => {
     const { key, coverName } = info
     const provider = getProvider(true)
 
-    const incidentDate = (await governance.getIncidentDate(ChainId.Mumbai, key, provider)).result
+    const incidentDate = (await governance.getIncidentDate(ChainId.Ropsten, key, provider)).result
     console.info('[%s] Incident Date: %s', coverName, toDate(incidentDate).toUTCString)
 
-    const response = await governance.finalize(ChainId.Mumbai, key, incidentDate, provider)
+    const response = await governance.finalize(ChainId.Ropsten, key, incidentDate, provider)
 
     console.info(response)
   } catch (error) {

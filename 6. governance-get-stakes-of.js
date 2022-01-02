@@ -1,7 +1,7 @@
 import { ChainId, governance } from '@neptunemutual/sdk'
 import { info } from './info.js'
 import { getProvider } from './provider.js'
-import { weiAsNep } from './bn.js'
+import { weiAsNpm } from './bn.js'
 
 const getStakesOf = async () => {
   try {
@@ -9,11 +9,11 @@ const getStakesOf = async () => {
     const provider = getProvider()
 
     const account = provider.address
-    const incidentDate = (await governance.getIncidentDate(ChainId.Mumbai, key, provider)).result
-    const response = await governance.getStakesOf(ChainId.Mumbai, key, incidentDate, account, provider)
+    const incidentDate = (await governance.getIncidentDate(ChainId.Ropsten, key, provider)).result
+    const response = await governance.getStakesOf(ChainId.Ropsten, key, incidentDate, account, provider)
     const { yes, no } = response.result
 
-    console.info('[%s Stakes Of %s] Yes: %s. No: %s', coverName, account, weiAsNep(yes), weiAsNep(no))
+    console.info('[%s Stakes Of %s] Yes: %s. No: %s', coverName, account, weiAsNpm(yes), weiAsNpm(no))
   } catch (error) {
     console.error(error)
   }
