@@ -17,7 +17,7 @@
     "standard": "^16.0.3"
   },
   "dependencies": {
-    "@neptunemutual/sdk": "^0.1.4-beta",
+    "@neptunemutual/sdk": "^0.1.6-beta",
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.1",
     "luxon": "^2.0.1"

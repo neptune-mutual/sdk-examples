@@ -40,7 +40,7 @@ const info = {
   },
   stakeWithFees: ether(50_000),
   initialLiquidity: ether(50_000),
-  minReportingStake: ether(5000)
+  minReportingStake: ether(500)
 }
 
 export { info }
