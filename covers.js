@@ -64,7 +64,7 @@ export const covers = [
     minReportingStake: ether(500),
     about:
       'Coinbase is a secure online platform for buying, selling, transferring, and storing cryptocurrency.',
-    tags: ['Smart Contract', 'DeFi', 'Lending'],
+    tags: ['Smart Contract', 'DeFi', 'Exchange'],
     rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
     2. During your coverage period, the protocol faced an attack, hack, exploitation, or vulnerability which resulted in the user assets being stolen or lost and the protocol was also unable to cover the loss themselves. This does not have to be your own loss.
     3. The protocol never communicated anything about their plans to cover the lost fund and de-risk their users within 7 days of the incident.
@@ -103,7 +103,7 @@ export const covers = [
     minReportingStake: ether(500),
     about:
       'Hex Trust is fully licenced, insured, and the leading provider of bank-grade custody for digital assets. ',
-    tags: ['Smart Contract', 'DeFi', 'Lending'],
+    tags: ['Smart Contract', 'DeFi', 'Custody'],
     rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
     2. During your coverage period, the protocol faced an attack, hack, exploitation, or vulnerability which resulted in the user assets being stolen or lost and the protocol was also unable to cover the loss themselves. This does not have to be your own loss.
     3. The protocol never communicated anything about their plans to cover the lost fund and de-risk their users within 7 days of the incident.
@@ -142,7 +142,7 @@ export const covers = [
     minReportingStake: ether(500),
     about:
       'OKEx is a Seychelles-based cryptocurrency exchange that provides a platform for trading various cryptocurrencies.',
-    tags: ['Smart Contract', 'DeFi', 'Lending'],
+    tags: ['Smart Contract', 'DeFi', 'Exchange'],
     rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
     2. During your coverage period, the protocol faced an attack, hack, exploitation, or vulnerability which resulted in the user assets being stolen or lost and the protocol was also unable to cover the loss themselves. This does not have to be your own loss.
     3. The protocol never communicated anything about their plans to cover the lost fund and de-risk their users within 7 days of the incident.
@@ -180,7 +180,7 @@ export const covers = [
     initialLiquidity: ether(50_000),
     minReportingStake: ether(500),
     about: 'Huobi is a Seychelles-based cryptocurrency exchange.',
-    tags: ['Exchange', 'DeFi', 'Lending'],
+    tags: ['Exchange', 'DeFi', 'Exchange'],
     rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
     2. During your coverage period, the protocol faced an attack, hack, exploitation, or vulnerability which resulted in the user assets being stolen or lost and the protocol was also unable to cover the loss themselves. This does not have to be your own loss.
     3. The protocol never communicated anything about their plans to cover the lost fund and de-risk their users within 7 days of the incident.
