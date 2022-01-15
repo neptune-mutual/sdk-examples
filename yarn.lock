@@ -367,9 +367,9 @@
     "@ethersproject/logger" "^5.4.0"
 
 "@ethersproject/networks@^5.4.0", "@ethersproject/networks@^5.5.0":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@ethersproject/networks/-/networks-5.5.1.tgz#b7f7b9fb88dec1ea48f739b7fb9621311aa8ce6c"
-  integrity sha512-tYRDM4zZtSUcKnD4UMuAlj7SeXH/k5WC4SP2u1Pn57++JdXHkRu2zwNkgNogZoxHzhm9Q6qqurDBVptHOsW49Q==
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@ethersproject/networks/-/networks-5.5.2.tgz#784c8b1283cd2a931114ab428dae1bd00c07630b"
+  integrity sha512-NEqPxbGBfy6O3x4ZTISb90SjEDkWYDUbEeIFhJly0F7sZjoQMnj5KYzMSkMkLKZ+1fGpx00EDpHQCy6PrDupkQ==
   dependencies:
     "@ethersproject/logger" "^5.5.0"
 
@@ -437,9 +437,9 @@
     "@ethersproject/logger" "^5.4.0"
 
 "@ethersproject/random@^5.4.0", "@ethersproject/random@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@ethersproject/random/-/random-5.5.0.tgz#305ed9e033ca537735365ac12eed88580b0f81f9"
-  integrity sha512-egGYZwZ/YIFKMHcoBUo8t3a8Hb/TKYX8BCBoLjudVCZh892welR3jOxgOmb48xznc9bTcMm7Tpwc1gHC1PFNFQ==
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@ethersproject/random/-/random-5.5.1.tgz#7cdf38ea93dc0b1ed1d8e480ccdaf3535c555415"
+  integrity sha512-YaU2dQ7DuhL5Au7KbcQLHxcRHfgyNgvFV4sQOo0HrtW3Zkrc9ctWNz8wXQ4uCSfSDsqX2vcjhroxU5RQRV0nqA==
   dependencies:
     "@ethersproject/bytes" "^5.5.0"
     "@ethersproject/logger" "^5.5.0"
@@ -635,10 +635,10 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@neptunemutual/sdk@^0.1.6-beta":
-  version "0.1.6-beta"
-  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.1.6-beta.tgz#899dc6a9f313e518eb28228142afdf47db647811"
-  integrity sha512-ifn0ivj0fMQdzAHXAl+Fsj0zHRdwS5C6JCLltIOefm2ADiFT7uNUjvsQV/793KiKxmY/XGSwzFDgFYDMxStEHQ==
+"@neptunemutual/sdk@^0.2.0-beta":
+  version "0.2.0-beta"
+  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.2.0-beta.tgz#dae3ba13bf6ab297f44614a38af84378caa8208e"
+  integrity sha512-E4scN8qGkfqqI/qpFkvT42/n9j5eBm9shcVETQt6zHX5Y8GxcraZycTwMAdPRoUpTPFKy5O/2ymMU33uJ9wnjg==
   dependencies:
     bs58 "4.0.1"
     ethers "5.4.1"
