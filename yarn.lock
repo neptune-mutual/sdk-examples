@@ -635,10 +635,10 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@neptunemutual/sdk@^0.2.1-beta":
-  version "0.2.1-beta"
-  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.2.1-beta.tgz#e6952e1ea6b2b480e7bc982c2b721cd76a7a5d1b"
-  integrity sha512-3Yp3hXVFpR7zLQLnHZTA9gGKcy72jFH1gJImI+N1SoitXXI6uKczMixLxdtUnU/bP6zs54VCnhvz8c5ERVRjVg==
+"@neptunemutual/sdk@^0.2.3-beta":
+  version "0.2.3-beta"
+  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.2.3-beta.tgz#460f2e597e7cb99930311b05633763affc9def6e"
+  integrity sha512-ceqy+jDz0G7yaJz7/tcpnCpem64cguzN+8WAbI1R8/kwU8VvnYaiF/UDWpSbcH4DbuHfyqXzCv+rT1RDUtTg7A==
   dependencies:
     bs58 "4.0.1"
     ethers "5.4.1"

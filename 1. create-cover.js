@@ -2,13 +2,13 @@ import { ChainId, cover } from '@neptunemutual/sdk'
 import { info } from './info.js'
 import { getProvider } from './provider.js'
 
-const create = async () => {
+const create = async (coverInfo) => {
   try {
     const provider = getProvider()
 
-    await cover.approveReassurance(ChainId.Ropsten, info.reassuranceToken.at, { amount: info.reassuranceToken.initialAmount }, provider)
-    await cover.approveInitialLiquidity(ChainId.Ropsten, { amount: info.initialLiquidity }, provider)
-    await cover.approveStakeAndFees(ChainId.Ropsten, { amount: info.stakeWithFees }, provider)
+    await cover.approveReassurance(ChainId.Ropsten, coverInfo.reassuranceToken.at, { amount: coverInfo.reassuranceToken.initialAmount }, provider)
+    await cover.approveInitialLiquidity(ChainId.Ropsten, { amount: coverInfo.initialLiquidity }, provider)
+    await cover.approveStakeAndFees(ChainId.Ropsten, { amount: coverInfo.stakeWithFees }, provider)
 
     /**
     If you encounter ERC-20 transfer error during cover on the next line, you may need to wait for the previous transactions to mine.
@@ -18,7 +18,7 @@ const create = async () => {
     tx.result.wait()
    */
 
-    const response = await cover.createCover(ChainId.Ropsten, info, provider)
+    const response = await cover.createCover(ChainId.Ropsten, coverInfo, provider)
     console.info(response)
   } catch (error) {
     console.error(error)
@@ -26,4 +26,4 @@ const create = async () => {
   }
 }
 
-create()
+create(info)

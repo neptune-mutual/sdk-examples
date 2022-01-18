@@ -8,7 +8,6 @@ const create = async () => {
     console.info(response)
   } catch (error) {
     console.error(error)
-    console.info('Click on the file --> `info.js` and change the key and other details')
   }
 }
 

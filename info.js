@@ -33,7 +33,7 @@ const info = {
   reportingPeriod: 7 * DAYS,
   resolutionSources: ['https://twitter.com/compoundfinance', 'https://medium.com/compound-finance', 'https://twitter.com/neptunemutual'],
   reassuranceToken: {
-    at: '0xe8BAb5ca5eA0Fc93b2a4E1aD22376726ED209ed5',
+    at: '0x963bd459c5bdf9396aacD59FE9621B64c921574E',
     name: 'DAI Stablecoin',
     symbol: 'DAI',
     initialAmount: ether(50_000)

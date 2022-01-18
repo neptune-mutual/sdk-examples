@@ -12,5 +12,8 @@
   "javascript.suggestionActions.enabled": false,
   "[javascript]": {
     "editor.formatOnSave": false
-  }
+  },
+  "cSpell.words": [
+    "Axie"
+  ]
 }
