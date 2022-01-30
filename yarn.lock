@@ -635,10 +635,10 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@neptunemutual/sdk@^0.2.3-beta":
-  version "0.2.3-beta"
-  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.2.3-beta.tgz#460f2e597e7cb99930311b05633763affc9def6e"
-  integrity sha512-ceqy+jDz0G7yaJz7/tcpnCpem64cguzN+8WAbI1R8/kwU8VvnYaiF/UDWpSbcH4DbuHfyqXzCv+rT1RDUtTg7A==
+"@neptunemutual/sdk@^0.2.4-beta":
+  version "0.2.4-beta"
+  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.2.4-beta.tgz#b3ff0800da92efdc50976b1cdb72434a219a4389"
+  integrity sha512-E5qTLQGMy9hYtm9Vp6PogwsjVp07HZKJJFmdALbiriqAJBsBej4wWVEdfTn5BjG1ZfZV0Y+y90JXJ6hPFL7gIg==
   dependencies:
     bs58 "4.0.1"
     ethers "5.4.1"
@@ -1702,6 +1702,11 @@ mkdirp@^0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 ms@2.0.0:
   version "2.0.0"

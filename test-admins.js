@@ -2,7 +2,7 @@ import { utils } from '@neptunemutual/sdk'
 const acl = utils.keyUtil.ACCESS_CONTROL
 
 const admins = [{
-  account: '0xA96813969437F3bad7B59335934aa75933670615',
+  account: '0xb899DCdA5e9291a6F6fE324F44c8C5B3376188da',
   roles: [
     acl.ADMIN,
     acl.COVER_MANAGER,
