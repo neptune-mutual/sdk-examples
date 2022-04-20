@@ -1,4 +1,4 @@
-import { ChainId, governance } from '@neptunemutual/sdk'
+import { ChainId, governance } from '../../sdk/dist/index.js'
 import { info } from '../configs/info.js'
 import { getProvider } from '../provider.js'
 
@@ -7,8 +7,8 @@ const dispute = async () => {
     const { key } = info
     const provider = getProvider(true)
 
-    await governance.approveStake(ChainId.Ropsten, {}, provider)
-    const response = await governance.dispute(ChainId.Ropsten, key, info.minReportingStake, provider)
+    await governance.approveStake(ChainId.Mumbai, {amount: info.minReportingStake}, provider)
+    const response = await governance.dispute(ChainId.Mumbai, key, info.minReportingStake, provider)
 
     console.info(response)
   } catch (error) {

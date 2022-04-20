@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { ChainId, cover } from '@neptunemutual/sdk'
+import { ChainId, cover } from '../../sdk/dist/index.js'
 import { covers } from '../configs/covers.js'
 import dotenv from 'dotenv'
 
@@ -22,7 +22,7 @@ const readCoverInfo = async () => {
     const key = covers[0].key
     const provider = myProvider()
 
-    const coverInfo = await cover.getCoverInfo(ChainId.Ropsten, key, provider)
+    const coverInfo = await cover.getCoverInfo(ChainId.Mumbai, key, provider)
     console.log(coverInfo)
   } catch (error) {
     console.error(error)

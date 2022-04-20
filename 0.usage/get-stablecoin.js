@@ -1,7 +1,9 @@
-import { ChainId, registry } from '@neptunemutual/sdk'
+import { ChainId, registry } from '../../sdk/dist/index.js';
+import { getProvider } from '../provider.js';
 
 const getDAI = async () => {
-  const dai = await registry.LiquidityToken.getInstance(ChainId.Ropsten)
+  const provider = getProvider()
+  const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
   console.log('Platform stablecoin', dai.address)
 }
 

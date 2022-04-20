@@ -1,24 +1,25 @@
-import { ChainId, registry } from '@neptunemutual/sdk'
+import { ChainId, registry } from '../../sdk/dist/index.js'
 import { info } from '../configs/info.js'
+import { getProvider } from '../provider.js'
 
 const get = async () => {
   try {
+    const provider = getProvider()
     const { key } = info
-
-    const npm = await registry.NPMToken.getAddress(ChainId.Ropsten)
-    const protocol = await registry.Protocol.getAddress(ChainId.Ropsten)
-    const claimsProcessor = await registry.ClaimsProcessor.getAddress(ChainId.Ropsten)
-    const cover = await registry.Cover.getAddress(ChainId.Ropsten)
-    const governance = await registry.Governance.getAddress(ChainId.Ropsten)
-    const policy = await registry.PolicyContract.getAddress(ChainId.Ropsten)
-    const provision = await registry.ProvisionContract.getAddress(ChainId.Ropsten)
-    const liquidityToken = await registry.LiquidityToken.getAddress(ChainId.Ropsten)
-    const reassuranceContract = await registry.Reassurance.getAddress(ChainId.Ropsten)
-    const coverStaking = await registry.Staking.getAddress(ChainId.Ropsten)
-    const bondPool = await registry.BondPool.getAddress(ChainId.Ropsten)
-    const stakingPools = await registry.StakingPools.getAddress(ChainId.Ropsten)
-    const vault = await registry.Vault.getAddress(ChainId.Ropsten, key)
-    const reassuranceToken = await registry.ReassuranceToken.getAddress(ChainId.Ropsten, key)
+    const npm = await registry.NPMToken.getAddress(ChainId.Mumbai, provider)
+    const protocol = await registry.Protocol.getAddress(ChainId.Mumbai, provider)
+    const claimsProcessor = await registry.ClaimsProcessor.getAddress(ChainId.Mumbai, provider)
+    const cover = await registry.Cover.getAddress(ChainId.Mumbai, provider)
+    const governance = await registry.Governance.getAddress(ChainId.Mumbai, provider)
+    const policy = await registry.PolicyContract.getAddress(ChainId.Mumbai, provider)
+    const provision = await registry.ProvisionContract.getAddress(ChainId.Mumbai, provider)
+    // const liquidityToken = await registry.LiquidityToken.getAddress(ChainId.Mumbai)
+    const reassuranceContract = await registry.Reassurance.getAddress(ChainId.Mumbai, provider)
+    const coverStaking = await registry.Staking.getAddress(ChainId.Mumbai, provider)
+    const bondPool = await registry.BondPool.getAddress(ChainId.Mumbai, provider)
+    const stakingPools = await registry.StakingPools.getAddress(ChainId.Mumbai, provider)
+    const vault = await registry.Vault.getAddress(ChainId.Mumbai, key, provider)
+    const reassuranceToken = await registry.ReassuranceToken.getAddress(ChainId.Mumbai, key, provider)
 
     const contracts = {
       npm,
@@ -28,7 +29,7 @@ const get = async () => {
       governance,
       policy,
       provision,
-      liquidityToken,
+      // liquidityToken,
       reassuranceToken,
       reassuranceContract,
       coverStaking,
