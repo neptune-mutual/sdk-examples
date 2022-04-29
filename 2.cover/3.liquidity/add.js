@@ -1,4 +1,4 @@
-import { ChainId, liquidity, utils, registry } from '../../../sdk/dist/index.js'
+import { ChainId, liquidity, utils, registry } from '@neptunemutual/sdk'
 import { info } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
 import { ether, weiAsDollars } from '../../bn.js'

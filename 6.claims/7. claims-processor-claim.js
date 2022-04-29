@@ -1,4 +1,4 @@
-import { ChainId, governance, claimsProcessor, cxToken, utils } from '../../sdk/dist/index.js'
+import { ChainId, governance, claimsProcessor, cxToken, utils } from '@neptunemutual/sdk'
 import { info } from '../configs/info.js'
 import { getProvider } from '../provider.js'
 import { ether } from '../bn.js'

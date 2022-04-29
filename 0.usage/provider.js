@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { ChainId, cover } from '../../sdk/dist/index.js'
+import { ChainId, cover } from '@neptunemutual/sdk'
 import { covers } from '../configs/covers.js'
 import dotenv from 'dotenv'
 

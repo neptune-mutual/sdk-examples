@@ -1,4 +1,4 @@
-import { ChainId, governance } from '../../sdk/dist/index.js'
+import { ChainId, governance } from '@neptunemutual/sdk'
 import { info } from '../configs/info.js'
 import { getProvider } from '../provider.js'
 

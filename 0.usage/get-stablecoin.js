@@ -1,4 +1,4 @@
-import { ChainId, registry } from '../../sdk/dist/index.js';
+import { ChainId, registry } from '@neptunemutual/sdk';
 import { getProvider } from '../provider.js';
 
 const getDAI = async () => {
