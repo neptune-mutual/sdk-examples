@@ -16,6 +16,36 @@ const weiAsToken = (x, symbol) => formatToken(weiToEther(x), symbol)
 const weiAsNpm = (x) => formatToken(weiToEther(x), 'NPM')
 const toDate = (x) => new Date(parseInt(x.toString()) * 1000)
 
+
+const networks = {
+  1: {
+    approximateBlockTime: 15
+  },
+  3: {
+    approximateBlockTime: 12
+  },
+  42: {
+    approximateBlockTime: 4
+  },
+  97: {
+    approximateBlockTime: 3
+  },
+  80001: {
+    approximateBlockTime: 3
+
+  },
+  31337: {
+    approximateBlockTime: 1
+  }
+}
+
+const minutesToBlocks = (chainId, minutes) => {
+  const seconds = minutes * 60
+  const { approximateBlockTime } = networks[chainId]
+
+  return seconds / approximateBlockTime
+}
+
 export {
   ether,
   percentage,
@@ -25,5 +55,6 @@ export {
   weiAsDollars,
   weiAsToken,
   weiAsNpm,
-  toDate
+  toDate,
+  minutesToBlocks
 }

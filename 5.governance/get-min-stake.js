@@ -8,7 +8,7 @@ const getMinStake = async () => {
     const { key } = info
     const provider = getProvider()
 
-    const response = await governance.getMinStake(ChainId.Ropsten, key, provider)
+    const response = await governance.getMinStake(ChainId.Mumbai, key, provider)
     console.info('Minimum Reporting Stake: %s', weiAsNpm(response.result))
   } catch (error) {
     console.error(error)

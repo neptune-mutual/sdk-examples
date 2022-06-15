@@ -7,9 +7,9 @@ const getReporter = async () => {
     const { key, coverName } = info
     const provider = getProvider()
 
-    const incidentDate = (await governance.getIncidentDate(ChainId.Ropsten, key, provider)).result
+    const incidentDate = (await governance.getIncidentDate(ChainId.Mumbai, key, provider)).result
 
-    const response = await governance.getReporter(ChainId.Ropsten, key, incidentDate, provider)
+    const response = await governance.getReporter(ChainId.Mumbai, key, incidentDate, provider)
     console.info('[%s] Reporter: %s', coverName, response.result)
   } catch (error) {
     console.error(error)
