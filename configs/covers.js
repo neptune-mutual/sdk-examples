@@ -1,10 +1,11 @@
-import { ether, percentage, minutesToBlocks } from '../bn.js'
+import { ether, percentage } from '../bn.js'
+import { minutesToBlocks } from '../utils/block.js'
 import '../utils/logger.js'
 
 const MINUTES = 60
 
 const covers = [
-{
+  {
     key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
     coverName: 'Animated Brands',
     projectName: 'Animated Brands',

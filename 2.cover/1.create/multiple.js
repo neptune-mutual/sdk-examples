@@ -14,19 +14,19 @@ const create = async (info) => {
     NPM --> Cover Staking Contract
 
     Example:
-    let tx = await cover.approveReassurance(ChainId.Ropsten, info.reassuranceToken.at, { amount: info.reassuranceToken.initialAmount }, provider)
+    let tx = await cover.approveReassurance(ChainId.Mumbai, info.reassuranceToken.at, { amount: info.reassuranceToken.initialAmount }, provider)
     tx.result.wait()
    */
-    let tx = await cover.approveReassurance(ChainId.Ropsten, info.reassuranceToken.at, { }, provider)
+    let tx = await cover.approveReassurance(ChainId.Mumbai, info.reassuranceToken.at, { }, provider)
     tx.result.wait()
 
-    tx = await cover.approveStakeAndFees(ChainId.Ropsten, { }, provider)
+    tx = await cover.approveStakeAndFees(ChainId.Mumbai, { }, provider)
     tx.result.wait()
 
-    tx = await cover.approveInitialLiquidity(ChainId.Ropsten, { }, provider)
+    tx = await cover.approveInitialLiquidity(ChainId.Mumbai, { }, provider)
     tx.result.wait()
 
-    const response = await cover.createCover(ChainId.Ropsten, info, provider)
+    const response = await cover.createCover(ChainId.Mumbai, info, provider)
     console.info(response)
   } catch (error) {
     console.error(error)

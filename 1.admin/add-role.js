@@ -7,7 +7,7 @@ const create = async () => {
   try {
     const provider = getProvider(true)
 
-    const protocol = await registry.Protocol.getInstance(ChainId.Ropsten, provider)
+    const protocol = await registry.Protocol.getInstance(ChainId.Mumbai, provider)
 
     for (const i in admins) {
       const { account, roles } = admins[i]

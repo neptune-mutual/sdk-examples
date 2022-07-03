@@ -3,7 +3,7 @@ import { getUniswap } from './index.js'
 
 const getRouter = async (provider) => {
   const { router } = getUniswap()
-  return utils.contract.getContract(ChainId.Ropsten, router, config.abis.IUniswapV2RouterLike, provider)
+  return utils.contract.getContract(ChainId.Mumbai, router, config.abis.IUniswapV2RouterLike, provider)
 }
 
 export { getRouter }

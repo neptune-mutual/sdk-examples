@@ -7,10 +7,10 @@ const set = async () => {
     const { key } = info
     const provider = getProvider()
 
-    const protocol = await registry.Protocol.getInstance(ChainId.Ropsten, provider)
+    const protocol = await registry.Protocol.getInstance(ChainId.Mumbai, provider)
     await protocol.grantRole(utils.keyUtil.ACCESS_CONTROL.LIQUIDITY_MANAGER, provider.address)
 
-    const vault = await registry.Vault.getInstance(ChainId.Ropsten, key, provider)
+    const vault = await registry.Vault.getInstance(ChainId.Mumbai, key, provider)
     const tx = await vault.setMinLiquidityPeriod('1')
     const result = await tx.wait()
 

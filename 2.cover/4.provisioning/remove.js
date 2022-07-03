@@ -13,14 +13,14 @@ const decrease = async () => {
     // const provider = getProvider(true)
     // const amount = ether(100)
 
-    let response = await provision.get(ChainId.Ropsten, key)
+    let response = await provision.get(ChainId.Mumbai, key)
     console.info('[%s Provision] Before: %s', coverName, weiAsNpm(response.result))
 
     // Only liquidity manager can decrease provision
-    // response = await provision.decrease(ChainId.Ropsten, key, amount, provider)
+    // response = await provision.decrease(ChainId.Mumbai, key, amount, provider)
     // console.info(response)
 
-    response = await provision.get(ChainId.Ropsten, key)
+    response = await provision.get(ChainId.Mumbai, key)
     console.info('[%s Provision] After: %s', coverName, weiAsNpm(response.result))
   } catch (error) {
     console.error(error)
