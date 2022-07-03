@@ -5,7 +5,7 @@ import { info } from '../configs/info.js'
 
 const getMinStake = async () => {
   try {
-    const { key } = info
+    const { key } = info;
     const provider = getProvider()
 
     const response = await governance.getMinStake(ChainId.Mumbai, key, provider)

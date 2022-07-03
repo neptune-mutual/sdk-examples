@@ -1,5 +1,5 @@
 import { ChainId, cover, registry } from '@neptunemutual/sdk'
-import { info } from '../../configs/info.js'
+import { newCover } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
 
 const create = async (coverInfo) => {
@@ -7,9 +7,11 @@ const create = async (coverInfo) => {
     const provider = getProvider()
 
     const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
-    await cover.approveReassurance(ChainId.Mumbai, dai.address, { amount: coverInfo.reassurance }, provider)
-    // await cover.approveInitialLiquidity(ChainId.Mumbai, { amount: coverInfo.initialLiquidity }, provider)
-    await cover.approveStakeAndFees(ChainId.Mumbai, { amount: coverInfo.stakeWithFees }, provider)
+    let tx = await cover.approveReassurance(ChainId.Mumbai, dai.address, { amount: coverInfo.reassurance }, provider)
+    await tx.result.wait()
+    
+    tx = await cover.approveStakeAndFees(ChainId.Mumbai, { amount: coverInfo.stakeWithFees }, provider)
+    await tx.result.wait()
 
     /**
     If you encounter ERC-20 transfer error during cover on the next line, you may need to wait for the previous transactions to mine.
@@ -31,4 +33,4 @@ const create = async (coverInfo) => {
   }
 }
 
-create(info)
+create(newCover)

@@ -1,5 +1,5 @@
-import { covers } from './covers.js'
+import { covers, newCover } from './covers.js'
 
 const [info] = covers
 
-export { info }
+export { info, newCover }

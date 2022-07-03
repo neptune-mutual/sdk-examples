@@ -1,3 +1,5 @@
+import BigNumber from 'bignumber.js'
+import { utils } from '@neptunemutual/sdk'
 import { ether, percentage, minutesToBlocks } from '../bn.js'
 import '../utils/logger.js'
 
@@ -6,6 +8,7 @@ const MINUTES = 60
 const covers = [
 {
     key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
+    productKey: utils.keyUtil.toBytes32(''),
     coverName: 'Animated Brands',
     projectName: 'Animated Brands',
     requiresWhitelist: false,
@@ -521,4 +524,41 @@ const covers = [
   }
 ]
 
-export { covers }
+const newCover = {
+  key: utils.keyUtil.toBytes32("my-new-cover"),
+  coverName: 'My New Cover',
+  projectName: 'My New Cover Project',
+  supportsProducts: false,
+  tags: ['Smart Contract', 'DeFi', 'Lending'],
+  about: 'Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.',
+  blockchains: [{
+    chainId: 1,
+    name: 'Main Ethereum Network'
+  }],
+  rules: 'Enter your cover rules here',
+  exclusions: ``,
+  links: {
+    website: 'https://compound.finance/',
+    documentation: 'https://docs.compound.finance/',
+    twitter: 'https://twitter.com/compoundfinance',
+    github: 'https://github.com/compound',
+    facebook: 'https://facebook.com/compoundfinance',
+    blog: 'https://blog.medium.com/compoundfinance',
+    discord: 'https://discord.com/invite/cU7vmVW',
+    linkedin: 'https://linkedin.com/in/compoundfinance'
+  },
+  pricingFloor: ether(6_000),
+  pricingCeiling: ether(12_000),
+  reportingPeriod: 7 * MINUTES,
+  cooldownPeriod: 1 * MINUTES,
+  claimPeriod: 7 * MINUTES,
+  minReportingStake: ether(5555).toString(),
+  resolutionSources: ['https://twitter.com/compoundfinance', 'https://medium.com/compound-finance', 'https://twitter.com/neptunemutual'],
+  stakeWithFees: ether(50_00),
+  reassurance: ether(50_01, 6),
+  reassuranceRate: percentage(1.5),
+  leverage: "1",
+  requiresWhitelist: true
+}
+
+export { covers, newCover }

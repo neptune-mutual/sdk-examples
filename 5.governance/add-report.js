@@ -1,24 +1,25 @@
-import { ChainId, governance } from '@neptunemutual/sdk'
+import { ChainId, governance, utils } from '@neptunemutual/sdk'
 import { info } from '../configs/info.js'
 import { getProvider } from '../provider.js'
 
 const payload = {
-  title: 'Test Exploit',
+  title: 'New Test Exploit on ' + info.coverName,
   observed: new Date(),
   proofOfIncident: 'https://etherscan.io/tokenholdings?a=0xA9AD3537C819ae0530623aFb458Fee8456C47d33',
-  description: 'DeFi protocol Learn Finance has reported that its vault was exploited by a hacker to the tune of $11 million on Dec 25.',
+  description: 'The DeFi protocol Learn Finance has reported that its vault was exploited by a hacker to the tune of $11 million on Dec 25.',
   stake: info.minReportingStake
 }
 
 const report = async () => {
   try {
-    const { key } = info
+    const { key } = info;
+    const productKey = utils.keyUtil.toBytes32("");
     const provider = getProvider()
 
-    let response = await governance.approveStake(ChainId.Mumbai, {}, provider)
+    let response = await governance.approveStake(ChainId.Mumbai, {amount: payload.stake}, provider)
     await response.result.wait()
 
-    response = await governance.report(ChainId.Mumbai, key, payload, provider)
+    response = await governance.report(ChainId.Mumbai, key, productKey, payload, provider)
     await response.result.wait();
     console.info(response)
   } catch (error) {

@@ -16,11 +16,13 @@ const get = async () => {
     // getting token from IERC20 instance
     const token = await registry.IERC20.getInstance(tokenAddress, provider);
     // getting symbol from the token
-    const symbol = await token.callStatic.symbol();
+    const symbol = await token.symbol();
+    // getting token decimals
+    const decimals = await token.decimals();
     
 
     const response = await reassurance.get(ChainId.Mumbai, key, provider)
-    console.info('[%s Reassurance] %s', coverName, weiAsToken(response.result, symbol))
+    console.info('[%s Reassurance] %s', coverName, weiAsToken(response.result, symbol, decimals))
   } catch (error) {
     console.error(error)
   }
