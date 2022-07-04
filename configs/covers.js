@@ -48,6 +48,44 @@ const covers = [
     reassuranceRate: percentage(25)
   },
   {
+    key: utils.keyUtil.toBytes32("my-diversified-cover"),
+    coverName: 'Diversified Cover',
+    projectName: 'Diversified Cover',
+    vault: {
+      name: 'Diversified Cover POD',
+      symbol: 'DC-nDAI'
+    },
+    requiresWhitelist: false,
+    supportsProducts: true,
+    leverage: '1',
+    tags: ['Smart Contract', 'NFT', 'Gaming'],
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod nisl nisi euismod nisl. Nullam euismod, nisi vel consectetur euismod,',
+    rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
+    2. During your coverage period, the project faced a vulnerability that resulted in user assets being stolen and the project was also unable to cover the loss themselves.
+    3. This does not have to be your own loss.`,
+    exclusions: '',
+    links: {
+      website: 'https://www.animatedbrands.com',
+      twitter: 'https://twitter.com/animatedbrands',
+      blog: 'https://animatedbrands.medium.com',
+      linkedin: 'https://www.linkedin.com/company/animated-brands'
+    },
+    pricingFloor: percentage(7),
+    pricingCeiling: percentage(24),
+    reportingPeriod: 30 * MINUTES,
+    cooldownPeriod: 5 * MINUTES,
+    claimPeriod: 30 * MINUTES,
+    minReportingStake: ether(3400),
+    resolutionSources: [
+      'https://twitter.com/animatedbrands',
+      'https://twitter.com/neptunemutual'
+    ],
+    stakeWithFees: ether(50_000),
+    reassurance: parseUnits(10_000, PRECISION),
+    reassuranceRate: percentage(25)
+  },
+  {
     key: '0x6262382d65786368616e67650000000000000000000000000000000000000000', // toBytes32('bb8-exchange')
     coverName: 'Bb8 Exchange Cover',
     projectName: 'Bb8 Exchange',
