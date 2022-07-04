@@ -8,8 +8,7 @@ const PRECISION = STABLECOIN_DECIMALS
 
 const covers = [
   {
-    // key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
-    key: '0x616e696d617465642d6272616e64732d32000000000000000000000000000000', // toBytes32('animated-brands-2')
+    key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
     coverName: 'Animated Brands',
     projectName: 'Animated Brands',
     vault: {
