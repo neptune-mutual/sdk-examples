@@ -23,9 +23,6 @@ const create = async (info) => {
     tx = await cover.approveStakeAndFees(ChainId.Mumbai, { }, provider)
     tx.result.wait()
 
-    tx = await cover.approveInitialLiquidity(ChainId.Mumbai, { }, provider)
-    tx.result.wait()
-
     const response = await cover.createCover(ChainId.Mumbai, info, provider)
     console.info(response)
   } catch (error) {
