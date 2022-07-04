@@ -2,6 +2,7 @@ import { Contract } from '@ethersproject/contracts'
 import { getProvider } from '../../provider.js'
 import FakeTokenABI from '../../configs/abis/FakeTokenABI.js'
 import { parseUnits } from '../../bn.js'
+import { ChainId, registry } from '@neptunemutual/sdk'
 
 export const mint = async (tokenAddress) => {
   try {
@@ -17,8 +18,21 @@ export const mint = async (tokenAddress) => {
       gasPrice: gasPrice.mul(2)
     })
     await tx.wait()
+    console.log("Minted!")
   } catch (error) {
     console.log('Minting failed.')
     console.error(error)
   }
 }
+
+const mintTokens = async () => {
+  const provider = getProvider()
+
+  const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
+  const npmAddress = await registry.NPMToken.getAddress(ChainId.Mumbai, provider)
+
+  await mint(daiAddress)
+  await mint(npmAddress)
+}
+
+mintTokens()

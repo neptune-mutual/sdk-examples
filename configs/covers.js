@@ -1,3 +1,4 @@
+import { utils } from '@neptunemutual/sdk'
 import { ether, percentage, parseUnits } from '../bn.js'
 import { minutesToBlocks } from '../utils/block.js'
 import '../utils/logger.js'
@@ -17,6 +18,44 @@ const covers = [
     },
     requiresWhitelist: false,
     supportsProducts: false,
+    leverage: '1',
+    tags: ['Smart Contract', 'NFT', 'Gaming'],
+    about:
+      'Animated Brands is a Thailand based gaming company, and a venture capitalist firm founded in 2017 by Jack D\'Souza. It was listed on Singapore Exchange (SGX) from 23rd May, 2019.',
+    rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
+    2. During your coverage period, the project faced a vulnerability that resulted in user assets being stolen and the project was also unable to cover the loss themselves.
+    3. This does not have to be your own loss.`,
+    exclusions: '',
+    links: {
+      website: 'https://www.animatedbrands.com',
+      twitter: 'https://twitter.com/animatedbrands',
+      blog: 'https://animatedbrands.medium.com',
+      linkedin: 'https://www.linkedin.com/company/animated-brands'
+    },
+    pricingFloor: percentage(7),
+    pricingCeiling: percentage(24),
+    reportingPeriod: 30 * MINUTES,
+    cooldownPeriod: 5 * MINUTES,
+    claimPeriod: 30 * MINUTES,
+    minReportingStake: ether(3400),
+    resolutionSources: [
+      'https://twitter.com/animatedbrands',
+      'https://twitter.com/neptunemutual'
+    ],
+    stakeWithFees: ether(50_000),
+    reassurance: parseUnits(10_000, PRECISION),
+    reassuranceRate: percentage(25)
+  },
+  {
+    key: utils.keyUtil.toBytes32("new-cover-test"),
+    coverName: 'Animated Brands 3',
+    projectName: 'Animated Brands 3',
+    vault: {
+      name: 'Animated Brands 3 POD',
+      symbol: 'AB3-nDAI'
+    },
+    requiresWhitelist: false,
+    supportsProducts: true,
     leverage: '1',
     tags: ['Smart Contract', 'NFT', 'Gaming'],
     about:

@@ -1,5 +1,5 @@
 import { ChainId, cover, registry } from '@neptunemutual/sdk'
-import { info } from '../../configs/info.js'
+import { info, diversified } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
 
 const create = async (coverInfo) => {
@@ -28,7 +28,7 @@ const create = async (coverInfo) => {
     const coverCreator = provider.address
     gasPrice = await provider.getGasPrice()
     response = await cover.whitelistCoverCreator(ChainId.Mumbai, coverCreator, provider, { gasPrice: gasPrice.mul(2) })
-    response.result.wait()
+    response.result.tx.wait()
 
     gasPrice = await provider.getGasPrice()
     response = await cover.createCover(ChainId.Mumbai, coverInfo, provider, { gasPrice: gasPrice.mul(2) })
@@ -41,6 +41,7 @@ const create = async (coverInfo) => {
 }
 
 create(info)
+// create(diversified)
 
 /*****************************************************************************
 [info] {
