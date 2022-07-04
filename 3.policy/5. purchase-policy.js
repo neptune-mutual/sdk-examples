@@ -8,8 +8,9 @@ const purcahse = async () => {
     const { key } = info
     const provider = getProvider()
 
-    const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
-    const daiDecimals = await dai.decimals()
+    const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
+    const daiToken = await registry.IERC20.getInstance(daiAddress, provider)
+    const daiDecimals = await daiToken.decimals()
 
     const args = {
       duration: 2,

@@ -8,8 +8,9 @@ import { parseUnits, unitsAsDollars } from '../../bn.js'
 const add = async () => {
   const { key, coverName } = info
   const provider = getProvider()
-  const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
-  const daiDecimals = await dai.decimals()
+  const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
+  const daiToken = await registry.IERC20.getInstance(daiAddress, provider)
+  const daiDecimals = await daiToken.decimals()
 
   const amount = parseUnits(150, daiDecimals)
   const stake = parseUnits(250)
