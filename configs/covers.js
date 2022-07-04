@@ -1,3 +1,4 @@
+import { utils } from '@neptunemutual/sdk'
 import { ether, percentage, parseUnits } from '../bn.js'
 import { minutesToBlocks } from '../utils/block.js'
 import '../utils/logger.js'
@@ -8,7 +9,8 @@ const PRECISION = STABLECOIN_DECIMALS
 
 const covers = [
   {
-    key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
+    key: utils.keyUtil.toBytes32('animated-brands'),
+    // key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
     coverName: 'Animated Brands',
     projectName: 'Animated Brands',
     vault: {
