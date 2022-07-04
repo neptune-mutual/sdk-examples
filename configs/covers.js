@@ -9,7 +9,8 @@ const PRECISION = STABLECOIN_DECIMALS
 
 const covers = [
   {
-    key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
+    key: utils.keyUtil.toBytes32('animated-brands'),
+    // key: '0x616e696d617465642d6272616e64730000000000000000000000000000000000', // toBytes32('animated-brands')
     coverName: 'Animated Brands',
     projectName: 'Animated Brands',
     vault: {
@@ -47,19 +48,19 @@ const covers = [
     reassuranceRate: percentage(25)
   },
   {
-    key: utils.keyUtil.toBytes32("new-cover-test"),
-    coverName: 'Animated Brands 3',
-    projectName: 'Animated Brands 3',
+    key: utils.keyUtil.toBytes32("my-diversified-cover"),
+    coverName: 'Diversified Cover',
+    projectName: 'Diversified Cover',
     vault: {
-      name: 'Animated Brands 3 POD',
-      symbol: 'AB3-nDAI'
+      name: 'Diversified Cover POD',
+      symbol: 'DC-nDAI'
     },
     requiresWhitelist: false,
     supportsProducts: true,
     leverage: '1',
     tags: ['Smart Contract', 'NFT', 'Gaming'],
     about:
-      'Animated Brands is a Thailand based gaming company, and a venture capitalist firm founded in 2017 by Jack D\'Souza. It was listed on Singapore Exchange (SGX) from 23rd May, 2019.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod nisl nisi euismod nisl. Nullam euismod, nisi vel consectetur euismod,',
     rules: `1. You must have maintained at least 1 NPM tokens in your wallet during your coverage period.
     2. During your coverage period, the project faced a vulnerability that resulted in user assets being stolen and the project was also unable to cover the loss themselves.
     3. This does not have to be your own loss.`,
