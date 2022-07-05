@@ -22,7 +22,7 @@ const readCoverInfo = async () => {
     const key = covers[0].key
     const provider = myProvider()
 
-    const coverInfo = await cover.getCoverInfo(ChainId.Mumbai, key, provider)
+    const coverInfo = await cover.getCoverInfo(ChainId.Mumbai, key, provider.provider)
     console.log(coverInfo)
   } catch (error) {
     console.error(error)

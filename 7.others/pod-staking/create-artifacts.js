@@ -4,7 +4,7 @@ import { ChainId, registry, config } from '@neptunemutual/sdk'
 import { percentage } from '../../bn.js'
 
 const getVault = async (key) => {
-  return registry.Vault.getInstance(ChainId.Ropsten, key)
+  return registry.Vault.getInstance(ChainId.Mumbai, key)
 }
 
 const all = async () => {
@@ -29,7 +29,7 @@ const all = async () => {
       continue
     }
 
-    const { rewardToken, uniRewardTokenDollarPair, stakingTarget, maxStake, rewardPerBlock, lockupPeriod, rewardTokenDeposit } = stakingPool.settings[ChainId.Ropsten]
+    const { rewardToken, uniRewardTokenDollarPair, stakingTarget, maxStake, rewardPerBlock, lockupPeriod, rewardTokenDeposit } = stakingPool.settings[ChainId.Mumbai]
 
     pools.push({
       key,

@@ -10,7 +10,7 @@ const addPodStaking = async (info) => {
   const { stakingToken, uniStakingTokenDollarPair, rewardToken, uniRewardTokenDollarPair } = info
   const { stakingTarget, maxStake, platformFee, rewardPerBlock, lockupPeriod, rewardTokenDeposit } = info
 
-  const stakingPools = await registry.StakingPools.getInstance(ChainId.Ropsten, provider)
+  const stakingPools = await registry.StakingPools.getInstance(ChainId.Mumbai, provider)
   await approve(rewardToken, stakingPools.address, provider)
 
   const addresses = [stakingToken, uniStakingTokenDollarPair, rewardToken, uniRewardTokenDollarPair]

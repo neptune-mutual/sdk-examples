@@ -1,47 +1,77 @@
-import { ChainId, liquidity, utils, registry } from '@neptunemutual/sdk'
+// @ts-check
+
+import { ChainId, liquidity, registry, utils } from '@neptunemutual/sdk'
 import { info } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
-import { ether, weiAsDollars } from '../../bn.js'
+import { parseUnits, unitsAsDollars } from '../../bn.js'
 
 const add = async () => {
-  try {
-    const { key, coverName } = info
+  const { key, coverName } = info
+  const provider = getProvider()
+  const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
+  const daiToken = await registry.IERC20.getInstance(daiAddress, provider)
+  const daiDecimals = await daiToken.decimals()
 
-    const provider = getProvider()
-    const amount = ether(500)
-    const stake = ether(250)
+  const amount = parseUnits(150, daiDecimals)
+  const stake = parseUnits(250)
+  const referralCode = utils.keyUtil.toBytes32('')
 
-    const arg = utils.keyUtil.toBytes32("");
+  // getting initial liquidity
+  let response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
+  console.info('[%s Liquidity] Before: %s', coverName, unitsAsDollars(response.result, daiDecimals))
 
-    let response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
-    console.info('[%s Liquidity] Before: %s', coverName, weiAsDollars(response.result))
+  // approving liquidity tokens
+  let gasPrice = await provider.getGasPrice()
+  response = await liquidity.approve(ChainId.Mumbai, key, { amount }, provider, {
+    gasPrice: gasPrice.mul(2)
+  })
+  await response.result.wait()
 
-    response = await liquidity.approve(ChainId.Mumbai, key, { amount }, provider)
-    await response.result.wait()
+  // approve NPM stake
+  gasPrice = await provider.getGasPrice()
+  response = await liquidity.approveStake(ChainId.Mumbai, key, { amount: stake }, provider, {
+    gasPrice: gasPrice.mul(2)
+  })
+  await response.result.wait()
 
-    // getting vault address (spender)
-    const spender = await registry.Vault.getAddress(ChainId.Mumbai, key, provider);
+  gasPrice = await provider.getGasPrice()
+  response = await liquidity.add(ChainId.Mumbai, key, amount, stake, provider, referralCode, {
+    gasPrice: gasPrice.mul(2)
+  })
+  console.info(response)
 
-    // getting NPM token token address 
-    const tokenAddress = await registry.NPMToken.getAddress(ChainId.Mumbai, provider);
+  await response.result.wait()
 
-    // getting token from IERC20 instance
-    const token = await registry.IERC20.getInstance(tokenAddress, provider);
-
-    // approve npm tokens
-    const res = await token.approve(spender, stake)
-    await res.wait();
-
-    response = await liquidity.add(ChainId.Mumbai, key, amount, stake, provider, arg)
-    // console.info(response)
-
-    await response.result.wait()
-
-    response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
-    console.info('[%s Liquidity] After: %s', coverName, weiAsDollars(response.result))
-  } catch (error) {
-    console.error(error)
-  }
+  response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
+  console.info('[%s Liquidity] After: %s', coverName, unitsAsDollars(response.result, daiDecimals))
 }
 
 add()
+
+/*****************************************************************************
+[info] [Animated Brands Liquidity] Before: US$3,212,076.42
+[info] {
+  status: 'Success',
+  result: {
+    type: 2,
+    chainId: 80001,
+    nonce: 10,
+    maxPriorityFeePerGas: BigNumber { _hex: '0x1c2346ca50', _isBigNumber: true },
+    maxFeePerGas: BigNumber { _hex: '0x1c2346ca50', _isBigNumber: true },
+    gasPrice: null,
+    gasLimit: BigNumber { _hex: '0x06bed3', _isBigNumber: true },
+    to: '0x0b0520Fd470126E6A557e80C45670F7F071fDbFb',
+    value: BigNumber { _hex: '0x00', _isBigNumber: true },
+    data: '0xb8c06a88616e696d617465642d6272616e647300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008f0d18000000000000000000000000000000000000000000000000d8d726b7177a800000000000000000000000000000000000000000000000000000000000000000000',
+    accessList: [],
+    hash: '0xff9fedd15548dee9fa89b515614986169922644836db25d770882832cc0d8bc5',
+    v: 1,
+    r: '0xe94d2aedf18d78dd1fa9432a2595a4c73dfe74abe73936c8ead6975575f4b392',
+    s: '0x0f839541af6983e34e9e6422037f559ceee83e3f9a3bd36d9d0e6e7aca15fa68',
+    from: '0x2DAc3776B9f4243DF6445515eBE6F6Cd003B3681',
+    confirmations: 0,
+    wait: [Function (anonymous)]
+  }
+}
+[info] [Animated Brands Liquidity] After: US$3,212,226.42
+*****************************************************************************/

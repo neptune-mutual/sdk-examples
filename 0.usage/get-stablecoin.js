@@ -1,5 +1,5 @@
-import { ChainId, registry } from '@neptunemutual/sdk';
-import { getProvider } from '../provider.js';
+import { ChainId, registry } from '@neptunemutual/sdk'
+import { getProvider } from '../provider.js'
 
 const getDAI = async () => {
   const provider = getProvider()

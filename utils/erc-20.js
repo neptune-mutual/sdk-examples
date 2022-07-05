@@ -7,7 +7,7 @@ const approve = async (tokenAddress, spender, provider) => {
     provider = await getProvider(true)
   }
 
-  const token = await registry.IERC20.getInstance(ChainId.Ropsten, tokenAddress, provider)
+  const token = await registry.IERC20.getInstance(tokenAddress, provider)
 
   const allowance = await token.callStatic.allowance(provider.address, spender)
   const symbol = await token.callStatic.symbol()
