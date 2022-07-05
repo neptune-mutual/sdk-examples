@@ -3,9 +3,9 @@ import { info } from '../configs/info.js'
 import { getProvider } from '../provider.js'
 
 const payload = {
-  title: 'Test Exploit',
+  title: 'The exploit was wrongly reported',
   proofOfDispute: 'https://etherscan.io/tokenholdings?a=0xA9AD3537C819ae0530623aFb458Fee8456C47d33',
-  description: 'DeFi protocol Learn Finance has reported that its vault was exploited by a hacker to the tune of $11 million on Dec 25.',
+  description: 'DeFi protocol Learn Finance had confirmed that its vault is safe and no funds are lost on Dec 29.',
   stake: info.minReportingStake
 }
 

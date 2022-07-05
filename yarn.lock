@@ -660,10 +660,10 @@
     "@ethersproject/properties" "^5.6.0"
     "@ethersproject/strings" "^5.6.1"
 
-"@neptunemutual/sdk@^0.4.6-beta":
-  version "0.4.6-beta"
-  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.4.6-beta.tgz#880c4b9d43935c4cdd45fa14ccd5124c313e9b38"
-  integrity sha512-etjmJm+1tzDAzk2O3pH5Lo49XmlMXPmWW6CwKsVi51gG6UNNVpbjo/jKXC7J0ohlKske80Gp3HQa9cKU3cCHzQ==
+"@neptunemutual/sdk@^0.4.7-beta":
+  version "0.4.7-beta"
+  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.4.7-beta.tgz#7662967afbe750a60942c15a958a54c693883b23"
+  integrity sha512-35Kiw8nGyangsHp9rsZtnPCMdelIoHdlvxoplz3JQ3y64AxpQS3PNUX1eN9KrqMrrGeoc5TtwO7HqAjrM0bb2Q==
   dependencies:
     "@ethersproject/abstract-signer" "5.4.1"
     "@ethersproject/constants" "5.4.0"

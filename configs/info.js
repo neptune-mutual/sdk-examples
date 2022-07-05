@@ -1,5 +1,6 @@
-import { covers } from './covers.js'
+import { covers, diversifiedCovers } from './covers.js'
 
-const [info, diversified] = covers
+const [info] = covers
+const [diversified] = diversifiedCovers
 
 export { info, diversified }
