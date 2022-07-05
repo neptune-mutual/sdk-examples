@@ -1,5 +1,5 @@
 import { ChainId, cover, registry } from '@neptunemutual/sdk'
-import { info, diversified } from '../../configs/info.js'
+import { info } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
 
 const create = async (coverInfo) => {
@@ -41,7 +41,6 @@ const create = async (coverInfo) => {
 }
 
 create(info)
-// create(diversified)
 
 /*****************************************************************************
 [info] {
