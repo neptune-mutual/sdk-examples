@@ -8,12 +8,12 @@ const purcahse = async () => {
     const { key } = info
     const provider = getProvider()
 
-    const daiToken = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
-    const daiDecimals = await daiToken.decimals()
+    const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
+    const decimals = await dai.decimals()
 
     const args = {
       duration: 2,
-      amount: parseUnits(200, daiDecimals), // <-- Amount to Cover (In DAI)
+      amount: parseUnits(50, decimals), // <-- Amount to Cover (In DAI)
       referralCode: utils.keyUtil.toBytes32(''),
       onBehalfOf: provider.address
     }

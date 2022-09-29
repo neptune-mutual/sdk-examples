@@ -6,23 +6,21 @@ import { parseUnits, unitsAsDollars } from '../../bn.js'
 const add = async () => {
   const { key, coverName } = info
   const provider = getProvider()
-  const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
-  const daiToken = await registry.IERC20.getInstance(daiAddress, provider)
-  const daiDecimals = await daiToken.decimals()
+  const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
+  const decimals = await dai.decimals()
 
-  const amount = parseUnits(150, daiDecimals)
+  const amount = parseUnits(150, decimals)
   const stake = parseUnits(250)
   const referralCode = utils.keyUtil.toBytes32('')
 
-  // getting initial liquidity
   let response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
-  console.info('[%s Liquidity] Before: %s', coverName, unitsAsDollars(response.result, daiDecimals))
+  console.info('[%s Liquidity] Before: %s', coverName, unitsAsDollars(response.result, decimals))
 
-  // approving liquidity tokens
+  // approve DAI for liquidity
   response = await liquidity.approve(ChainId.Mumbai, key, { amount }, provider)
   await response.result.wait()
 
-  // approve NPM stake
+  // approve NPM for stake
   response = await liquidity.approveStake(ChainId.Mumbai, key, { amount: stake }, provider)
   await response.result.wait()
 
@@ -32,7 +30,7 @@ const add = async () => {
   await response.result.wait()
 
   response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
-  console.info('[%s Liquidity] After: %s', coverName, unitsAsDollars(response.result, daiDecimals))
+  console.info('[%s Liquidity] After: %s', coverName, unitsAsDollars(response.result, decimals))
 }
 
 add()
