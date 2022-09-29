@@ -660,10 +660,10 @@
     "@ethersproject/properties" "^5.6.0"
     "@ethersproject/strings" "^5.6.1"
 
-"@neptunemutual/sdk@^0.4.7-beta":
-  version "0.4.7-beta"
-  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.4.7-beta.tgz#7662967afbe750a60942c15a958a54c693883b23"
-  integrity sha512-35Kiw8nGyangsHp9rsZtnPCMdelIoHdlvxoplz3JQ3y64AxpQS3PNUX1eN9KrqMrrGeoc5TtwO7HqAjrM0bb2Q==
+"@neptunemutual/sdk@^0.4.9-beta":
+  version "0.4.9-beta"
+  resolved "https://registry.yarnpkg.com/@neptunemutual/sdk/-/sdk-0.4.9-beta.tgz#a2cb0443659e5412897a30ea92aad7401e71309b"
+  integrity sha512-lEIgCRXl7xr0VxPriihs+PsLtz7zrDtxV8gkEUj0trh7/jAPX03MEUoei+S1a6bXaisXxKQEJFlTCewmVmhrYA==
   dependencies:
     "@ethersproject/abstract-signer" "5.4.1"
     "@ethersproject/constants" "5.4.0"
@@ -672,6 +672,7 @@
     "@ethersproject/solidity" "5.4.0"
     "@ethersproject/strings" "5.4.0"
     axios "0.26.0"
+    uuid "8.3.2"
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -2262,6 +2263,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+uuid@8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"
