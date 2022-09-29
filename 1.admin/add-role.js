@@ -15,10 +15,13 @@ const addRole = async () => {
       for (const j in roles) {
         const role = roles[j]
 
-        await protocol.grantRole(role, account)
-        await protocol.grantRole(role, provider.address)
+        let tx = await protocol.grantRole(role, account)
+        await tx.wait()
 
-        console.info(account, 'was granted the', ethers.utils.toUtf8String(role), 'role')
+        tx = await protocol.grantRole(role, provider.address)
+        await tx.wait()
+
+        console.info(account, 'was granted the', ethers.utils.parseBytes32String(role) || 'ADMIN', 'role')
       }
     }
   } catch (error) {

@@ -4,10 +4,10 @@ import { covers } from '../configs/covers.js'
 import dotenv from 'dotenv'
 
 /**
-  * The following are a sample of environment variables
-  * RPC=https://matic-mumbai.chainstacklabs.com
-  * NPM_MUMBAI_STORE=0x85193e801c845f1f2949cc96b3fb00041d0a1b84
-  */
+ * The following are a sample of environment variables
+ * RPC=https://matic-mumbai.chainstacklabs.com
+ * NPM_MUMBAI_STORE=0x85193e801c845f1f2949cc96b3fb00041d0a1b84
+ */
 dotenv.config()
 
 const myProvider = () => {

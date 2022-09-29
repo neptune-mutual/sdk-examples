@@ -13,21 +13,17 @@ const increase = async () => {
     const symbol = await dai.symbol()
     const decimals = await dai.decimals()
 
-    const amount = parseUnits(100, decimals)
-
     let response = await reassurance.get(ChainId.Mumbai, key, provider)
     console.info('[%s Reassurance] Before: %s', coverName, unitsAsToken(response.result, decimals, symbol))
 
+    const amount = parseUnits(100, decimals)
     response = await reassurance.approve(ChainId.Mumbai, { amount }, provider)
-    // Wait for the transaction to get included in a block
-    await response.result.wait()
+    await response.result.wait() // Wait for the transaction to get included in a block
 
     response = await reassurance.add(ChainId.Mumbai, key, amount, provider)
-    // Wait for the transaction to get included in a block
-    await response.result.wait()
+    await response.result.wait() // Wait for the transaction to get included in a block
 
     response = await reassurance.get(ChainId.Mumbai, key, provider)
-
     console.info('[%s Reassurance] After: %s', coverName, unitsAsToken(response.result, decimals, symbol))
   } catch (error) {
     console.error(error)

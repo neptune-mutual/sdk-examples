@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { ChainId, registry } from '@neptunemutual/sdk'
+import { registry } from '@neptunemutual/sdk'
 import { getProvider } from '../provider.js'
 
 const approve = async (tokenAddress, spender, provider) => {
