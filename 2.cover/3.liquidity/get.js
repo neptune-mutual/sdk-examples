@@ -7,8 +7,7 @@ const get = async () => {
   try {
     const { key, coverName } = info
     const provider = getProvider()
-    const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
-    const dai = await registry.IERC20.getInstance(daiAddress, provider)
+    const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
 
     const response = await liquidity.getBalance(ChainId.Mumbai, key, provider)
     console.info('[%s Liquidity] %s', coverName, unitsAsDollars(response.result, await dai.decimals()))

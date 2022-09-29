@@ -25,8 +25,8 @@ const create = async (info) => {
     tx = await cover.approveStakeAndFees(ChainId.Mumbai, { amount: info.stakeWithFees }, provider)
     await tx.result.wait()
 
-    let res = await cover.whitelistCoverCreator(ChainId.Mumbai, provider.address, provider)
-    await res.result.wait()
+    tx = await cover.whitelistCoverCreator(ChainId.Mumbai, provider.address, provider)
+    await tx.result.wait()
 
     const response = await cover.createCover(ChainId.Mumbai, info, provider)
     console.info(response)

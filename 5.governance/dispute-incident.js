@@ -36,9 +36,8 @@ dispute()
   status: 'Success',
   result: {
     storage: {
-      hashBytes32: '0x91c3f49289cbe3dae1dc1514fc5b638498feef8220d5316d0ec54ccf4d49ca01',
       hash: 'QmY9f8UKbXa1UP9rXdPDkYddE3gwk1ukgsRuxwC1kugum2',
-      permalink: 'https://ipfs.infura.io/ipfs/QmY9f8UKbXa1UP9rXdPDkYddE3gwk1ukgsRuxwC1kugum2'
+      permalink: 'https://ipfs.io/ipfs/QmY9f8UKbXa1UP9rXdPDkYddE3gwk1ukgsRuxwC1kugum2'
     },
     tx: {
       type: 2,

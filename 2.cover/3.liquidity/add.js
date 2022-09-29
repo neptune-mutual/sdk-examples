@@ -1,5 +1,3 @@
-// @ts-check
-
 import { ChainId, liquidity, registry, utils } from '@neptunemutual/sdk'
 import { info } from '../../configs/info.js'
 import { getProvider } from '../../provider.js'
@@ -21,23 +19,14 @@ const add = async () => {
   console.info('[%s Liquidity] Before: %s', coverName, unitsAsDollars(response.result, daiDecimals))
 
   // approving liquidity tokens
-  let gasPrice = await provider.getGasPrice()
-  response = await liquidity.approve(ChainId.Mumbai, key, { amount }, provider, {
-    gasPrice: gasPrice.mul(2)
-  })
+  response = await liquidity.approve(ChainId.Mumbai, key, { amount }, provider)
   await response.result.wait()
 
   // approve NPM stake
-  gasPrice = await provider.getGasPrice()
-  response = await liquidity.approveStake(ChainId.Mumbai, key, { amount: stake }, provider, {
-    gasPrice: gasPrice.mul(2)
-  })
+  response = await liquidity.approveStake(ChainId.Mumbai, key, { amount: stake }, provider)
   await response.result.wait()
 
-  gasPrice = await provider.getGasPrice()
-  response = await liquidity.add(ChainId.Mumbai, key, amount, stake, provider, referralCode, {
-    gasPrice: gasPrice.mul(2)
-  })
+  response = await liquidity.add(ChainId.Mumbai, key, amount, stake, provider, referralCode)
   console.info(response)
 
   await response.result.wait()

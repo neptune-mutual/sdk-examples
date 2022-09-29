@@ -18,7 +18,7 @@ export const mint = async (tokenAddress) => {
       gasPrice: gasPrice.mul(2)
     })
     await tx.wait()
-    console.log("Minted!")
+    console.log('Minted!')
   } catch (error) {
     console.log('Minting failed.')
     console.error(error)

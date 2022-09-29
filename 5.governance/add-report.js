@@ -36,9 +36,8 @@ report()
   status: 'Success',
   result: {
     storage: {
-      hashBytes32: '0x01d5ff954cff5d1c5e3de56676599eee60f75a539c6bba1ef3b6a20dac6da244',
       hash: 'QmNTpNuTjzQivpCGrAi1HixmbP2smwQ7KjH2uVFkD8s8Hh',
-      permalink: 'https://ipfs.infura.io/ipfs/QmNTpNuTjzQivpCGrAi1HixmbP2smwQ7KjH2uVFkD8s8Hh'
+      permalink: 'https://ipfs.io/ipfs/QmNTpNuTjzQivpCGrAi1HixmbP2smwQ7KjH2uVFkD8s8Hh'
     },
     tx: {
       type: 2,

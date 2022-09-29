@@ -8,8 +8,7 @@ const purcahse = async () => {
     const { key } = info
     const provider = getProvider()
 
-    const daiAddress = await registry.Stablecoin.getAddress(ChainId.Mumbai, provider)
-    const daiToken = await registry.IERC20.getInstance(daiAddress, provider)
+    const daiToken = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
     const daiDecimals = await daiToken.decimals()
 
     const args = {
@@ -20,11 +19,10 @@ const purcahse = async () => {
     }
 
     // First approve the Policy contract to spend your DAI or BUSD
-    const gasPrice = await provider.getGasPrice()
-    let response = await policy.approve(ChainId.Mumbai, { amount: args.amount }, provider, { gasPrice: gasPrice.mul(2) })
+    let response = await policy.approve(ChainId.Mumbai, { amount: args.amount }, provider)
     await response.result.wait()
 
-    response = await policy.purchaseCover(ChainId.Mumbai, key, utils.keyUtil.toBytes32(''), args, provider, { gasPrice: gasPrice.mul(2) })
+    response = await policy.purchaseCover(ChainId.Mumbai, key, utils.keyUtil.toBytes32(''), args, provider)
     await response.result.wait()
     console.info(response)
   } catch (error) {

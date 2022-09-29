@@ -9,14 +9,9 @@ const increase = async () => {
 
     const provider = getProvider()
 
-    // getting token address from registry Stablecoin
-    const tokenAddress = await (await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)).address
-    // getting token from IERC20 instance
-    const token = await registry.IERC20.getInstance(tokenAddress, provider)
-    // getting symbol from the token
-    const symbol = await token.symbol()
-    // getting token decimals
-    const decimals = await token.decimals()
+    const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
+    const symbol = await dai.symbol()
+    const decimals = await dai.decimals()
 
     const amount = parseUnits(100, decimals)
 
@@ -28,7 +23,6 @@ const increase = async () => {
     await response.result.wait()
 
     response = await reassurance.add(ChainId.Mumbai, key, amount, provider)
-
     // Wait for the transaction to get included in a block
     await response.result.wait()
 

@@ -9,14 +9,9 @@ const get = async () => {
 
     const provider = getProvider()
 
-    // getting token address from registry Stablecoin
-    const tokenAddress = await (await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)).address
-    // getting token from IERC20 instance
-    const token = await registry.IERC20.getInstance(tokenAddress, provider)
-    // getting symbol from the token
-    const symbol = await token.symbol()
-    // getting token decimals
-    const decimals = await token.decimals()
+    const dai = await registry.Stablecoin.getInstance(ChainId.Mumbai, provider)
+    const symbol = await dai.symbol()
+    const decimals = await dai.decimals()
 
     const response = await reassurance.get(ChainId.Mumbai, key, provider)
     console.info('[%s Reassurance] %s', coverName, unitsAsToken(response.result, decimals, symbol))
@@ -26,3 +21,7 @@ const get = async () => {
 }
 
 get()
+
+/*****************************************************************************
+[info] [X2D2 Exchange Cover Reassurance] 20,000.00 DAI
+*****************************************************************************/

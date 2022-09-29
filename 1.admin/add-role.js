@@ -3,7 +3,7 @@ import { ChainId, registry } from '@neptunemutual/sdk'
 import { getProvider } from '../provider.js'
 import { admins } from '../test-admins.js'
 
-const create = async () => {
+const addRole = async () => {
   try {
     const provider = getProvider(true)
 
@@ -26,4 +26,4 @@ const create = async () => {
   }
 }
 
-create()
+addRole()
